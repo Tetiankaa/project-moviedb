@@ -1,0 +1,9 @@
+.Background{
+    background-image: url("image/light_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+

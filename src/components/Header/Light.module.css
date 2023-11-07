@@ -1,13 +1,13 @@
 .Header{
     width: 100vw;
     height: 12vh;
-    background-color: lightblue;
+    background-color: rgba(252, 188, 102, 0.93);
     color: #ffffff;
     text-shadow: 2px 2px 2px grey;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    transition: background-color 0.25s ease-in-out;
+    transition: all 0.5s ease;
 }
 
 .Title{
@@ -28,9 +28,11 @@
     width: 60vw;
 }
 .Navlink a:hover{
-    color: #055fe5;
+    color: #c2783c;
     font-weight: bold;
     transition: 0.5s;
+    font-size: 34px;
+    text-shadow: 1px 1px 1px black;
 }
 .User{
     font-size: 35px;
@@ -82,7 +84,7 @@
     width: 15px;
     left: 2px;
     bottom: 2px;
-    background-color: #2154f1;
+    background-color: snow;
     transition: 0.4s;
     transform: translateX(0);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {MoviesList} from "../components/MoviesContainer";
+import {MoviesList} from "../components";
 
 const MoviesPage = () => {
     return (
