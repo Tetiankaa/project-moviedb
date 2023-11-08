@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 
 import {Context} from "../hoc";
-import {IContext} from "../interfaces/contextInterface";
+import {IContext} from "../interfaces";
 
 const UseAppContext = () => {
     const {theme, setTheme} = useContext(Context) as IContext;

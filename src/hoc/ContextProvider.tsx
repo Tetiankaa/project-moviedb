@@ -1,5 +1,6 @@
 import React, {createContext, FC, PropsWithChildren, useState} from 'react';
-import {IContext} from "../interfaces/contextInterface";
+
+import {IContext} from "../interfaces";
 
 const Context = createContext<IContext | null>(null);
 interface IProps extends PropsWithChildren{}

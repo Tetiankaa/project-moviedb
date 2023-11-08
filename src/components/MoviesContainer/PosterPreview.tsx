@@ -15,9 +15,9 @@ const PosterPreview:FC<IProps> = ({poster_path,original_title}) => {
         posterService.getPoster().then(({data:{images:{secure_base_url}}})=>setUrl({secure_base_url}));
     }, []);
 
-    const SIZE = `w185`;
+    const size = `w185`;
 
-    const imageURL = `${url.secure_base_url}${SIZE}${poster_path}`;
+    const imageURL = `${url.secure_base_url}${size}${poster_path}`;
 
     return <img src={imageURL} alt={original_title} style={{borderRadius:10}}/>
 };
