@@ -5,9 +5,10 @@ import {posterService} from "../../services";
 
 interface IProps {
     poster_path:string,
-    original_title:string
+    original_title:string,
+    size:string
 }
-const PosterPreview:FC<IProps> = ({poster_path,original_title}) => {
+const PosterPreview:FC<IProps> = ({poster_path,original_title,size}) => {
 
     const [url, setUrl] = useState<IPoster>( {secure_base_url: null});
 
@@ -15,7 +16,6 @@ const PosterPreview:FC<IProps> = ({poster_path,original_title}) => {
         posterService.getPoster().then(({data:{images:{secure_base_url}}})=>setUrl({secure_base_url}));
     }, []);
 
-    const size = `w185`;
 
     const imageURL = `${url.secure_base_url}${size}${poster_path}`;
 

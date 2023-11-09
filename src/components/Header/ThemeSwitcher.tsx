@@ -13,7 +13,6 @@ const ThemeSwitcher:FC<IProps> = ({theme, setTheme}) => {
     const containerClass = theme ? lightCss.Container : darkCss.Container;
     const switchClass = theme ? lightCss.Switch : darkCss.Switch;
     const sliderClass = theme ? lightCss.Slider : darkCss.Slider;
-    const roundClass = theme ? lightCss.Round : darkCss.Round;
 
     return (
         <div className={containerClass}>
@@ -21,7 +20,6 @@ const ThemeSwitcher:FC<IProps> = ({theme, setTheme}) => {
             <div className={switchClass}>
                 <label className={sliderClass}>
                     <input type="checkbox" onChange={() => setTheme(!theme)} />
-                    <span className={roundClass}></span>
                 </label>
             </div>
             <span style={{ color: theme ? "grey" : "#c96dfd" }}>☽</span>

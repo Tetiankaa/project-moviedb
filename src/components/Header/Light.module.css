@@ -1,6 +1,6 @@
 .Header{
     width: 100vw;
-    height: 12vh;
+    height: 10vh;
     background-color: rgba(252, 188, 102, 0.93);
     color: #ffffff;
     text-shadow: 2px 2px 2px grey;
@@ -8,16 +8,18 @@
     justify-content: space-around;
     align-items: center;
     transition: all 0.5s ease;
+    z-index: 1;
+    position: relative;
+    box-shadow: rgb(252, 188, 102) 0 2px 3px;
 }
 
 .Title{
-    font-size: 32px;
+    font-size: 33px;
     margin-left: 40px;
-
 }
 .Navlink a{
     text-decoration: none;
-    font-size: 32px;
+    font-size: 33px;
     color: snow;
     text-shadow: 2px 2px 2px grey;
 }
@@ -31,7 +33,7 @@
     color: #c2783c;
     font-weight: bold;
     transition: 0.5s;
-    font-size: 34px;
+    font-size: 35px;
     text-shadow: 1px 1px 1px black;
 }
 .User{
@@ -42,25 +44,25 @@
     flex-direction: column;
 }
 .User p{
-    font-size: 18px;
-    margin: 6px;
+    font-size: 19px;
+    margin: 6px ;
     text-shadow: 2px 2px 2px grey;
 }
 .Container{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 70px;
 }
 .Container span{
-    font-size: 23px;
-    margin: 1px;
+    font-size: 30px;
+    margin: 2px;
 }
 .Switch{
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 20px;
+    width: 70px;
+    height: 24px;
 }
 .Switch input{
     opacity: 0;
@@ -76,27 +78,17 @@
     bottom: 0;
     background-color: #a69d9d;
     transition: 0.5s;
+    border-radius: 34px;
 }
 .Slider:before{
     position: absolute;
     content: "";
-    height: 15px;
-    width: 15px;
-    left: 2px;
+    height: 20px;
+    width: 20px;
+    left: 4px;
     bottom: 2px;
     background-color: snow;
     transition: 0.4s;
     transform: translateX(0);
-}
-.SwitchCheckbox{
-    padding: 10px;
-}
-.Round, .Slider{
-    border-radius: 34px;
-}
-.Slider:before{
-    border-radius: 50%;
-}
-.Round:before{
     border-radius: 50%;
 }
