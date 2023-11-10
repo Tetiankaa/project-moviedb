@@ -14,7 +14,6 @@ const MoviesList = () => {
      const [query, setQuery] =  useSearchParams({page:"1"})
      const page:string = query.get('page');
 
-
     useEffect(() => {
         moviesService.getAll(page).then(({data:{results,total_pages}})=> {
             setMovies(results);
@@ -34,7 +33,7 @@ const MoviesList = () => {
                 {movies.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}
             </div>
 
-            <Pagination setQuery={setQuery} page={page} maxPages={totalPages}/>
+            <Pagination setQuery={setQuery} page={page} totalPages={totalPages}/>
         </>
     );
 };

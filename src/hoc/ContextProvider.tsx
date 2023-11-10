@@ -6,8 +6,10 @@ const Context = createContext<IContext | null>(null);
 interface IProps extends PropsWithChildren{}
 const ContextProvider:FC<IProps> = ({children}) => {
     const [theme, setTheme] = useState<boolean>(true);
+    const [genre, setGenre] = useState({genre:null});
+
     return (
-       <Context.Provider value={{theme, setTheme}}>
+       <Context.Provider value={{theme, setTheme, genre,setGenre}}>
            {children}
        </Context.Provider>
     );

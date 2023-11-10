@@ -26,6 +26,10 @@ const SearchForm = () => {
 
     const submit: SubmitHandler<ISearch> =  (value) => {
         setValue(value);
+        setQuery((prev)=>{
+            prev.set('page', `${1}`);
+            return prev
+        })
         setInitialMovieList(false);
         reset();
     }
@@ -48,7 +52,7 @@ const SearchForm = () => {
 
 
     return (
-        <>
+        <div className={totalResults<11 ? `${formCss.Container}` : ''}>
             <form onSubmit={handleSubmit(submit)} className={formCss.Form}>
                 <input type="search" required={true} placeholder={'Search'} {...register('search')} className={formCss.Input}/>
                 <button type={"submit"} className={formCss.Button}> <FontAwesomeIcon icon={faMagnifyingGlass} /></button>
@@ -69,13 +73,13 @@ const SearchForm = () => {
             </div>
 
             <div>
-                {initialMovieList
+                {initialMovieList || totalResults === 0
                     ? ''
-                    : <Pagination setQuery={setQuery} page={page} maxPages={totalPages}/>
+                    : <Pagination setQuery={setQuery} page={page} totalPages={totalPages}/>
                 }
             </div>
 
-        </>
+        </div>
     );
 };
 

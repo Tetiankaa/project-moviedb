@@ -1,3 +1,3 @@
 export interface IPoster {
-    secure_base_url:string | null
+    secure_base_url:string |null
 }
