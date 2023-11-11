@@ -72,7 +72,7 @@ const Pagination:FC<IProps> = ({setQuery,page, totalPages}) => {
             <button onClick={previousPage} disabled={page === '1'} className={css.Button}>Back</button>
         <ul>
             {activePage>=4 &&<button onClick={()=>changeQuery(0)} className={css.Button}>1</button>}
-            {activePage>=4 && <button className={css.Button}>...</button>}
+            {activePage>=4  && <button className={css.Button}>...</button>}
             {pages.map(page=>
                ( <button
                 className={isActive(page)}

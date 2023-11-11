@@ -7,3 +7,4 @@ export * from './MoviesByGenre';
 export * from './Movie';
 export * from './VideoPreview';
 export * from './Reviews';
+export * from './Review';

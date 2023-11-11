@@ -2,6 +2,9 @@ import React, {FC, useEffect, useState} from 'react';
 import YouTube from "react-youtube";
 
 import {videoService} from "../../services";
+import css from './Movies.module.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faComments} from "@fortawesome/free-solid-svg-icons";
 
 interface IProps {
     id:number
@@ -12,7 +15,7 @@ const VideoPreview:FC<IProps> = ({id}) => {
     useEffect(() => {
         videoService.getById(id).then(({data:{results}})=>{
             if (results){
-                setKey(results[0].key)
+                setKey(results[0]?.key)
             }else {
                 setKey(null);
             }
@@ -22,8 +25,8 @@ const VideoPreview:FC<IProps> = ({id}) => {
     return (
         <div>
             {key
-                ? <YouTube videoId={key}></YouTube>
-                : <h1>Trailer is not available...</h1>
+                ? <YouTube videoId={key} opts={{height:'620',width:'1240'}}/>
+                : <p className={css.ErrorText}><span>Trailer is not available...</span></p>
             }
         </div>
     );

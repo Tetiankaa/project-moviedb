@@ -13,7 +13,7 @@ const Movie = () => {
     useEffect(() => {
         moviesService.getById(id).then(({data})=>setFilm(data))
     }, [id]);
-    console.log(film)
+
     return (
         <div>
             {film && <MovieInfo film={film} key={film.id}/>}

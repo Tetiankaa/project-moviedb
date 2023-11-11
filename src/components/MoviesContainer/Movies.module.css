@@ -82,10 +82,16 @@
 }
 .MovieInfoContainer{
     width: 100vw;
-    height: 90vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: rgba(208, 115, 115, 0.52);
     box-shadow: 25px 0 20px -20px rgba(155, 154, 154, 0.45), -25px 0 20px -20px rgba(121, 120, 120, 0.61);
+}
+.InnerContainer{
+    width: 100vw;
+    display: flex;
 }
 .Poster{
     display: flex;
@@ -94,30 +100,51 @@
     flex-direction: column;
     width: 40vw;
     position: relative;
-}
-.Poster > :last-child{
     margin-top: 20px;
-    border-radius: 10px;
 }
+
 .MovieInfo{
-    width: 50vw;
-    margin-top: 50px;
+    width: 52vw;
+    margin-top: 20px;
+
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: rgba(0, 0, 0, 0.63) 0 22px 70px 4px;
+    border-radius: 15px;
 }
 .OriginalTitle{
     font-size: 50px;
-    color: white;
-    text-decoration: underline;
+    color: #071a4f;
     text-shadow: 2px 2px 2px black;
+    margin-left: 10px;
 }
 .Info{
     font-size: 30px;
-    color: white;
+    color: #071a4f;
+    margin-left: 10px;
+}
+.Genre span{
+    font-size: 30px;
+    color: #8d1329;
+    cursor: pointer;
+}
+.Info i{
+    font-weight:bold ;
+    color: #071a4f;
+    /*text-shadow: 1px 1px 1px white;*/
+}
+.Genre i{
+    font-size: 30px;
+    font-weight:bold ;
+    color: #071a4f;
+    /*text-shadow: 1px 1px 1px white;*/
+    margin-left: 10px;
 }
 .StarsRating{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 10px;
 }
 .StarsRating p{
     color: white;
@@ -126,4 +153,56 @@
     border-bottom: 2px solid;
     border-top: 2px solid;
     margin: 5px;
+}
+.VideoReviews{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.ErrorText, .ReviewsErrorText{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    background-color: rgba(166, 157, 157, 0.66);
+    box-shadow: rgba(0, 0, 0, 0.63) 0 22px 70px 4px;
+}
+.ReviewsText, .TrailerText{
+    font-size: 42px;
+    color: white;
+    margin: 50px 0 0 100px;
+
+}
+.Line{
+    width: 100vw;
+    height: 2px;
+    background-color: white;
+}
+.Review{
+    width: 80vw;
+    margin-left: 40px;
+    padding: 0 0 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.Author{
+    font-size: 22px;
+    font-weight:bold ;
+    margin-bottom: 0;
+
+}
+.Date{
+    font-size: 14px;
+    margin: 0;
+}
+.Content{
+    font-size: 20px;
+
 }

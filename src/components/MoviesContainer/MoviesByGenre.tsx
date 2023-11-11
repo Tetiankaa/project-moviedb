@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useSearchParams} from "react-router-dom";
 import {faFilm} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services";
 import css from './Movies.module.css';
 import {MoviesListCard} from "./index";
 import {Pagination} from "../PaginationContainer";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {UseAppContext} from "../../hooks";
-import {log} from "util";
 
 const MoviesByGenre = () => {
     const {id} = useParams();
