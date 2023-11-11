@@ -7,30 +7,37 @@ interface IProps {
     page:string,
     totalPages:number
 }
-const Pagination:FC<IProps> = ({setQuery,page, totalPages}) => {
+const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
 
     const [pages, setPages] = useState<number[]>([]);
     const [activePage, setActivePage] = useState(+page-1);
 
     const buildPages =()=>{
-        let start = 0;
-        let end = 5;
-
-        if (totalPages <= 4) {
-            end = totalPages;
-        } else if (activePage > 3 && activePage < totalPages - 3) {
-            start = activePage - 1;
-            end = activePage - 1 + 3;
-        } else if (totalPages > 1 && activePage > totalPages - 5) {
-            start = totalPages - 5;
-            end = totalPages - 1;
-        }
-
         const newPages = [];
-        for (let i = start; i < end; i++) {
-            newPages.push(i);
+
+        if (totalPages <= 5) {
+            for (let i = 0; i < totalPages; i++) {
+                newPages.push(i);
+            }
+        } else {
+            const maxVisiblePages = 5;
+            let start = Math.max(0, Math.min(totalPages - maxVisiblePages, activePage - Math.floor(maxVisiblePages / 2)));
+            let end;
+
+            if (activePage === totalPages - maxVisiblePages){
+                 end = Math.min(totalPages, start + maxVisiblePages) + 1;
+            }else {
+                 end = Math.min(totalPages, start + maxVisiblePages);
+            }
+
+
+            for (let i = start; i < end; i++) {
+                newPages.push(i);
+            }
         }
+
         setPages(newPages);
+
 
     };
 
@@ -71,24 +78,34 @@ const Pagination:FC<IProps> = ({setQuery,page, totalPages}) => {
         <div className={css.Buttons}>
             <button onClick={previousPage} disabled={page === '1'} className={css.Button}>Back</button>
         <ul>
-            {activePage>=4 &&<button onClick={()=>changeQuery(0)} className={css.Button}>1</button>}
-            {activePage>=4  && <button className={css.Button}>...</button>}
-            {pages.map(page=>
-               ( <button
-                className={isActive(page)}
-                onClick={()=> {
-                    changeQuery(page);
-                }}
-                key={page}
-                >{page+1}</button>))}
-            {activePage< totalPages-4 && <button className={css.Button}>...</button>}
-            {totalPages>1 && (
-                <button
-                className={isActive(totalPages-1)}
-                onClick={()=> {
-                    changeQuery(totalPages-1);
-                }}
-                >{totalPages}</button>
+            {totalPages >= 1 && (
+                <>
+                    {activePage >= 3 && pages[0] !== 0 && <button onClick={() => changeQuery(0)} className={css.Button}>1</button>}
+                    {activePage >= 3 && pages[0] > 1 && <button className={css.Button}>...</button>}
+
+                    {pages.map(page => (
+                        <button
+                            className={isActive(page)}
+                            onClick={() => {
+                                changeQuery(page);
+                            }}
+                            key={page}
+                        >
+                            {page + 1}
+                        </button>
+                    ))}
+                    {totalPages > 5 && activePage < totalPages - 5 && <button className={css.Button}>...</button>}
+                    {(totalPages > 5 && activePage < totalPages - 3 ) && (
+                        <button
+                            className={isActive(totalPages - 1)}
+                            onClick={() => {
+                                changeQuery(totalPages - 1);
+                            }}
+                        >
+                            {totalPages}
+                        </button>
+                    )}
+                </>
             )}
         </ul>
             <button onClick={nextPage} disabled={page === totalPages.toString()} className={css.Button}>Next</button>
