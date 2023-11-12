@@ -1,5 +1,5 @@
 import {IRes} from "../types";
-import {IResReview} from "../interfaces/reviewResInterface";
+import {IResReview} from "../interfaces";
 import {axiosService} from "./axiosService";
 import {urls} from "../constants";
 

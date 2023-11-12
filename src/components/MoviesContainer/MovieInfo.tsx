@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import {useNavigate} from "react-router-dom";
 
 import {IMovie} from "../../interfaces";
 import {PosterPreview} from "./PosterPreview";
@@ -6,7 +7,6 @@ import {StarsRating} from "./StarsRating";
 import css from './Movies.module.css';
 import {VideoPreview} from "./VideoPreview";
 import {Reviews} from "./Reviews";
-import {useNavigate} from "react-router-dom";
 import {UseAppContext} from "../../hooks";
 interface IProps {
     film:IMovie
@@ -18,8 +18,10 @@ const MovieInfo:FC<IProps> = ({film}) => {
     const {setGenre} = UseAppContext();
 
     const size = 'w500';
-    console.log(genres)
+
     const country = production_countries.length > 0 ? production_countries[0].name : '';
+
+    const isBudget = budget > 0 ? budget : '';
 
     const moviesByGenre = (id:number,name:string):void =>{
         navigate(`/genres/${id}`);
@@ -43,10 +45,16 @@ const MovieInfo:FC<IProps> = ({film}) => {
                     <div className={css.MovieInfo}>
                         <p className={css.OriginalTitle}>{original_title}</p>
                         <p className={css.Info}><i>Release date: </i>{release_date}</p>
+
                         {country
                         ? <p className={css.Info}><i>Country: </i>{country}</p>
                         : ''}
-                        <p className={css.Info}><i>Budget:</i> {budget}$</p>
+
+                        {
+                            isBudget
+                            ? <p className={css.Info}><i>Budget:</i> {budget}$</p>
+                            : ''
+                        }
 
                         <p className={css.Genre}><i>Genre: </i>{genres.map((genre, index) => <span
                             key={genre.id} onClick={()=>moviesByGenre(genre.id,genre.name)}>{genre.name}{index !== genres.length - 1 && ', '}</span>)}</p>
@@ -65,7 +73,7 @@ const MovieInfo:FC<IProps> = ({film}) => {
                         <Reviews id={id}/>
                     </div>
                 </div>
-                
+
             </div>
 
         </>

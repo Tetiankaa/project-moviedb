@@ -1,6 +1,6 @@
 import {IMovie} from "./movieInterface";
 
-export interface IMovieResponse{
+export interface IResMovie{
     page:number,
     results:IMovie[],
     total_pages:number,

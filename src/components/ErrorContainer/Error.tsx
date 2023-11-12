@@ -1,9 +1,11 @@
 import React from 'react';
 
+import css from './Error.module.css';
+
 const Error = () => {
     return (
-        <div>
-            <h1>Error</h1>
+        <div className={css.Background}>
+
         </div>
     );
 };

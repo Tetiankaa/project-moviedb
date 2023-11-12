@@ -8,7 +8,7 @@ import {MovieInfo} from "./MovieInfo";
 const Movie = () => {
     const {id} = useParams();
 
-    const [film, setFilm] = useState<IMovie | null>(null);
+    const [film, setFilm] = useState<IMovie>(null);
 
     useEffect(() => {
         moviesService.getById(id).then(({data})=>setFilm(data))
@@ -16,7 +16,7 @@ const Movie = () => {
 
     return (
         <div>
-            {film && <MovieInfo film={film} key={film.id}/>}
+            {film && <MovieInfo film={film}/>}
         </div>
     );
 };

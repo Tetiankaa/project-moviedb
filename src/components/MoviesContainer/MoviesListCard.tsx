@@ -17,12 +17,13 @@ const MoviesListCard:FC<IProps> = ({movie}) => {
 
     return (
         <div className={css.MovieContainer}>
-            <div className={css.Movie} onClick={()=>navigation(`/movies/${id}`)}>
 
+            <div className={css.Movie} onClick={()=>navigation(`/movies/${id}`)}>
                 <PosterPreview poster_path={poster_path} original_title={original_title} size={size}/>
                 <p>{original_title}</p>
                 <StarsRating vote_average={vote_average} size={22}/>
             </div>
+
         </div>
     );
 };

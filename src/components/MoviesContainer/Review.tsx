@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 
-import {IReview} from "../../interfaces/reviewInterface";
+import {IReview} from "../../interfaces";
 import css from './Movies.module.css';
 
 interface IProps {

@@ -9,19 +9,19 @@ const configuration = '/configuration';
 const videos = '/videos';
 const reviews = '/reviews';
 
-const urls={
-    movies:{
-        base:movies,
-        byId:(id:string):string=>`${movie}/${id}`
+const urls = {
+    movies: {
+        base: movies,
+        byId: (id: string): string => `${movie}/${id}`
     },
     genres,
     search,
     configuration,
-    trailer:{
-        byId:(id:number):string=>`${movie}/${id}${videos}`
+    video: {
+        byId: (id: number): string => `${movie}/${id}${videos}`
     },
-    reviews:{
-        byId:(id:number):string=>`${movie}/${id}${reviews}`
+    reviews: {
+        byId: (id: number): string => `${movie}/${id}${reviews}`
     }
 }
 

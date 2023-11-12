@@ -3,8 +3,7 @@ import YouTube from "react-youtube";
 
 import {videoService} from "../../services";
 import css from './Movies.module.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faComments} from "@fortawesome/free-solid-svg-icons";
+
 
 interface IProps {
     id:number

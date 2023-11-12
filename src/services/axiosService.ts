@@ -1,6 +1,6 @@
 import axios from "axios";
-import {baseURL} from "../constants";
 
+import {baseURL} from "../constants";
 const axiosService = axios.create({baseURL});
 
 axiosService.interceptors.request.use(request=>{

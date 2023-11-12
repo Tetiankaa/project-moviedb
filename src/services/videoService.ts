@@ -4,6 +4,6 @@ import {urls} from "../constants";
 import {IVideo} from "../interfaces";
 
 const videoService = {
-   getById:(id:number):IRes<IVideo>=>axiosService.get(urls.trailer.byId(id))
+   getById:(id:number):IRes<IVideo>=>axiosService.get(urls.video.byId(id))
 }
 export {videoService}

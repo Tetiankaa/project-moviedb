@@ -11,7 +11,7 @@ const MainLayout = () => {
 
     return (
         <div>
-            <Header/>
+                <Header/>
             <div className={theme ? lightCss.Background : darkCss.Background}>
                 <Outlet/>
             </div>

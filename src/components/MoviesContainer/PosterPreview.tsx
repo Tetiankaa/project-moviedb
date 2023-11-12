@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 
 import {IPoster} from "../../interfaces";
 import {posterService} from "../../services";
+import no_image from './images/no_image.jpg';
 
 interface IProps {
     poster_path:string,
@@ -17,18 +18,17 @@ const PosterPreview:FC<IProps> = ({poster_path,original_title,size}) => {
     }, []);
 
 
-
       const imageURL = `${url.secure_base_url}${size}${poster_path}`;
 
       const isImage = (poster_path:string) =>{
           if (poster_path){
               return <img src={imageURL} alt={original_title} style={{borderRadius:10}}/>
           } else {
-              return <img src={'https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg'} alt={'no image available'} style={{borderRadius:10,width:250}}/>;
+              return <img src={no_image} alt={'no image available'} style={{borderRadius:10,width:250}}/>;
           }
       }
 
-    return isImage(poster_path)
+    return isImage(poster_path);
 };
 
 export {PosterPreview};

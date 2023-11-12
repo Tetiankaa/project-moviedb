@@ -16,13 +16,17 @@ const ThemeSwitcher:FC<IProps> = ({theme, setTheme}) => {
 
     return (
         <div className={containerClass}>
+
             <span style={{ color: theme ? "yellow" : "grey" }}>☀︎</span>
+
             <div className={switchClass}>
                 <label className={sliderClass}>
                     <input type="checkbox" onChange={() => setTheme(!theme)} />
                 </label>
             </div>
+
             <span style={{ color: theme ? "grey" : "#c96dfd" }}>☽</span>
+
         </div>
     );
 };

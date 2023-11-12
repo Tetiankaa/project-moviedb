@@ -2,7 +2,7 @@ import React, {createContext, FC, PropsWithChildren, useState} from 'react';
 
 import {IContext} from "../interfaces";
 
-const Context = createContext<IContext | null>(null);
+const Context = createContext<IContext>(null);
 interface IProps extends PropsWithChildren{}
 const ContextProvider:FC<IProps> = ({children}) => {
     const [theme, setTheme] = useState<boolean>(true);

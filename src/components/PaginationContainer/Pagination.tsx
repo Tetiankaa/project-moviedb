@@ -3,16 +3,17 @@ import React, {FC, useEffect, useState} from 'react';
 import css from "../MoviesContainer/Movies.module.css";
 
 interface IProps {
-    setQuery:Function,
-    page:string,
-    totalPages:number
+    setQuery: Function,
+    page: string,
+    totalPages: number
 }
-const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
+
+const Pagination: FC<IProps> = ({setQuery, page, totalPages}) => {
 
     const [pages, setPages] = useState<number[]>([]);
-    const [activePage, setActivePage] = useState(+page-1);
+    const [activePage, setActivePage] = useState(+page - 1);
 
-    const buildPages =()=>{
+    const buildPages = () => {
         const newPages = [];
 
         if (totalPages <= 5) {
@@ -24,9 +25,9 @@ const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
             let start = Math.max(0, Math.min(totalPages - maxVisiblePages, activePage - Math.floor(maxVisiblePages / 2)));
             let end;
 
-            if (activePage === totalPages - maxVisiblePages){
+            if (activePage === totalPages - maxVisiblePages) {
                 end = Math.min(totalPages, start + maxVisiblePages) + 1;
-            }else {
+            } else {
                 end = Math.min(totalPages, start + maxVisiblePages);
             }
 
@@ -43,43 +44,46 @@ const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
     useEffect(() => {
         setActivePage(+`${+page - 1}`);
         buildPages();
-    }, [page,totalPages]);
+    }, [page, totalPages]);
 
     useEffect(() => {
         buildPages();
     }, [activePage]);
 
-    const isActive = (page:number) =>(activePage === page ? `${css.ActiveButton}` : `${css.Button}`);
+    const isActive = (page: number) => (activePage === page ? `${css.ActiveButton}` : `${css.Button}`);
 
 
-    const previousPage = ()=>{
-        setQuery((prev: { set: (arg0: string, arg1: string) => void; get: (arg0: string) => string | number; })=>{
-            prev.set('page',`${+prev.get('page')-1}`);
+    const previousPage = () => {
+        setQuery((prev: { set: (arg0: string, arg1: string) => void; get: (arg0: string) => string | number; }) => {
+            prev.set('page', `${+prev.get('page') - 1}`);
             return prev;
         })
 
     }
 
-    const nextPage = () =>{
-        setQuery((prev: { set: (arg0: string, arg1: string) => void; get: (arg0: string) => string | number; })=>{
+    const nextPage = () => {
+        setQuery((prev: { set: (arg0: string, arg1: string) => void; get: (arg0: string) => string | number; }) => {
             prev.set('page', `${+prev.get('page') + 1}`);
             return prev;
         })
     }
-    const changeQuery = (page:number) =>{
-        setQuery(((prev: { set: (arg0: string, arg1: string) => void; })=>{
-            prev.set('page', `${page+1}`)
+    const changeQuery = (page: number) => {
+        setQuery(((prev: { set: (arg0: string, arg1: string) => void; }) => {
+            prev.set('page', `${page + 1}`)
             return prev;
         }));
     }
 
     return (
         <div className={css.Buttons}>
+
             <button onClick={previousPage} disabled={page === '1'} className={css.Button}>Back</button>
+
             <ul>
                 {totalPages >= 1 && (
                     <>
-                        {activePage >= 3 && pages[0] !== 0 && <button onClick={() => changeQuery(0)} className={css.Button}>1</button>}
+                        {activePage >= 3 && pages[0] !== 0 &&
+                            <button onClick={() => changeQuery(0)} className={css.Button}>1</button>}
                         {activePage >= 3 && pages[0] > 1 && <button className={css.Button}>...</button>}
 
                         {pages.map(page => (
@@ -94,7 +98,7 @@ const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
                             </button>
                         ))}
                         {totalPages > 5 && activePage < totalPages - 5 && <button className={css.Button}>...</button>}
-                        {(totalPages > 5 && activePage < totalPages - 3 ) && (
+                        {(totalPages > 5 && activePage < totalPages - 3) && (
                             <button
                                 className={isActive(totalPages - 1)}
                                 onClick={() => {
@@ -107,7 +111,9 @@ const Pagination:FC<IProps> = ({setQuery,page,totalPages}) => {
                     </>
                 )}
             </ul>
+
             <button onClick={nextPage} disabled={page === totalPages.toString()} className={css.Button}>Next</button>
+
         </div>
     );
 };

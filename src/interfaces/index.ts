@@ -7,3 +7,5 @@ export * from './genreInterface';
 export * from './genreResInterface';
 export * from './searchInterface';
 export * from './videoInterface';
+export * from './reviewInterface';
+export * from './reviewResInterface';

@@ -1,6 +1,6 @@
 import React from 'react';
-import {GenreBadge} from "../components";
 
+import {GenreBadge} from "../components";
 const GenresPage = () => {
     return (
         <div>

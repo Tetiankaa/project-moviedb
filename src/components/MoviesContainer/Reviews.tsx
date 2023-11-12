@@ -3,7 +3,7 @@ import {faComments} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import {reviewService} from "../../services";
-import {IReview} from "../../interfaces/reviewInterface";
+import {IReview} from "../../interfaces";
 import {Review} from "./Review";
 import css from './Movies.module.css';
 
