@@ -165,7 +165,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     font-size: 35px;
     font-weight: bold;
     color: white;
