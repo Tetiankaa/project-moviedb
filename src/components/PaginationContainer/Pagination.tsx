@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 
 import css from "../MoviesContainer/Movies.module.css";
 
@@ -13,7 +13,7 @@ const Pagination: FC<IProps> = ({setQuery, page, totalPages}) => {
     const [pages, setPages] = useState<number[]>([]);
     const [activePage, setActivePage] = useState(+page - 1);
 
-    const buildPages = () => {
+    const buildPages = useCallback(() => {
         const newPages = [];
 
         if (totalPages <= 5) {
@@ -37,18 +37,16 @@ const Pagination: FC<IProps> = ({setQuery, page, totalPages}) => {
         }
 
         setPages(newPages);
-
-
-    };
+    }, [activePage,totalPages]);
 
     useEffect(() => {
         setActivePage(+`${+page - 1}`);
         buildPages();
-    }, [page, totalPages]);
+    }, [page,buildPages]);
 
     useEffect(() => {
         buildPages();
-    }, [activePage]);
+    }, [activePage,buildPages]);
 
     const isActive = (page: number) => (activePage === page ? `${css.ActiveButton}` : `${css.Button}`);
 

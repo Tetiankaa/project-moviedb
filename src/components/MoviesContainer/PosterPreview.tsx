@@ -24,7 +24,7 @@ const PosterPreview:FC<IProps> = ({poster_path,original_title,size}) => {
           if (poster_path){
               return <img src={imageURL} alt={original_title} style={{borderRadius:10}}/>
           } else {
-              return <img src={no_image} alt={'no image available'} style={{borderRadius:10,width:250}}/>;
+              return <img src={no_image} alt={'not available'} style={{borderRadius:10,width:250}}/>;
           }
       }
 
